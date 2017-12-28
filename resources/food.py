@@ -73,6 +73,18 @@ class Food(Resource):
                 "Foods": row
             }
 
+    @classmethod
+    def insert(cls, food):
+        connection = sqlite3.connect("data.db")
+        cursor = connection.cursor()
+        query = "INSERT INTO foods VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        cursor.execute(query, (
+        food['food_name'], food['food_calorie'], food['food_type'], food['food_cuisine'], food['food_image'],
+        food['food_category'], food['food_description'], food['spice1'], food['spice2'], food['spice3'],
+        food['spice4']))
+        connection.commit()
+        connection.close()
+
     @jwt_required()
     def get(self, food_name):
         food = self.find_by_food_name(food_name)
@@ -91,13 +103,35 @@ class Food(Resource):
                 # "dodo": "lives here '{}'".format(self)
             }, 400
         data = Food.parser.parse_args()
+        food = {
+            "food_name": data['food_name'],
+            "food_calorie": data['food_calorie'],
+            "food_type": data['food_type'],
+            "food_cuisine": data['food_cuisine'],
+            "food_image": data['food_image'],
+            "food_category": data['food_category'],
+            "food_description": data['food_description'],
+            "spice1": data['spice1'],
+            "spice2": data['spice2'],
+            "spice3": data['spice3'],
+            "spice4": data['spice4']
+        }
+        try:
+            self.insert(food)
+        except:
+            return {
+                "message": "Error occured durig insertion", 500
+            }
+        return food, 201
 
+    @jwt_required()
+    def delete(self, food_name):
         connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
-        query = "INSERT INTO foods VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        result = cursor.execute(query, (data['food_name'],data['food_calorie'], data['food_type'], data['food_cuisine'], data['food_image'], data['food_category'], data['food_description'], data['spice1'], data['spice2'], data['spice3'], data['spice4']))
+        query = "DELETE FROM foods WHERE food_name =?"
+        result = cursor.execute(query, (food_name,))
         connection.commit()
         connection.close()
         return {
-            "message": "Successfully added records"
-        }, 201
+            "message": "Successfully deleted {}".format(food_name)
+        }
