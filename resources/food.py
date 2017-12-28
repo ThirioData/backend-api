@@ -89,10 +89,9 @@ class Food(Resource):
     def update(cls, food):
         connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
-        query = "UPDATE foods SET food_name = ?, food_calorie = ?, food_type = ?, food_cuisine = ?, food_image = ?," \
-                "food_category = ?, food_description = ?, spice1 = ?, spice2 = ?, spice3 = ?, spice4 = ? WHERE food_name = ?"
+        query = "UPDATE foods SET food_calorie=?, food_type=?, food_cuisine=?, food_image=?, food_category=?, food_description=?, spice1=?, spice2=?, spice3=?, spice4=? WHERE food_name=?"
         cursor.execute(query, (
-            food['food_name'], food['food_calorie'], food['food_type'], food['food_cuisine'], food['food_image'],
+            food['food_calorie'], food['food_type'], food['food_cuisine'], food['food_image'],
             food['food_category'], food['food_description'], food['spice1'], food['spice2'], food['spice3'],
             food['spice4', food['food_name']]))
         connection.commit()
@@ -137,12 +136,12 @@ class Food(Resource):
             }, 500
         return food, 201
 
-    @jwt_required()
+    # @jwt_required()
     def put(self, food_name):
         data = Food.parser.parse_args()
         food = self.find_by_food_name(food_name)
-        updated_food = food = {
-            "food_name": data['food_name'],
+        updated_food = {
+            # "food_name": data['food_name'],
             "food_calorie": data['food_calorie'],
             "food_type": data['food_type'],
             "food_cuisine": data['food_cuisine'],
@@ -159,14 +158,14 @@ class Food(Resource):
                 self.insert(updated_food)
             except:
                 return {
-                    "message": "Server insertion error"
+                    "message": "Server insertion error on insert"
                 }, 500
         else:
             try:
                 self.update(updated_food)
             except:
                 return {
-                    "message": "Server insertion error"
+                    "message": "error occured on update"
                 }, 500
         return updated_food
 

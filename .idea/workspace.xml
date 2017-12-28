@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78892a65-247a-4b17-b902-5966c61989b3" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/resources/foodList.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change beforePath="$PROJECT_DIR$/data.db" afterPath="$PROJECT_DIR$/data.db" />
       <change beforePath="$PROJECT_DIR$/resources/food.py" afterPath="$PROJECT_DIR$/resources/food.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/backend_api$create_tables.coverage" NAME="create_tables Coverage Results" MODIFIED="1514483280199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/backend_api$app.coverage" NAME="app Coverage Results" MODIFIED="1514486414707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend_api$app.coverage" NAME="app Coverage Results" MODIFIED="1514488783842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/backend_api$food.coverage" NAME="food Coverage Results" MODIFIED="1514484543603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/resources" />
   </component>
   <component name="DatabaseView">
@@ -33,8 +37,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="520">
+              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -45,14 +49,28 @@
       <file leaf-file-name="food.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/food.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+            <state relative-caret-position="78">
+              <caret line="91" column="34" lean-forward="true" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1514488425841" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
-                <marker date="1514488425841" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
-                <marker date="1514488425841" expanded="true" signature="3455:3681" ph="UPDATE foods... " />
-                <marker date="1514488425841" expanded="true" signature="6571:6607" ph="DELETE FROM foods... " />
+                <marker date="1514490182447" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
+                <marker date="1514490182447" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
+                <marker date="1514490182447" expanded="true" signature="3455:3530" ph="UPDATE foods... " />
+                <marker date="1514490182447" expanded="true" signature="3455:3624" ph="UPDATE foods... " />
+                <marker date="1514490182447" expanded="true" signature="6503:6539" ph="DELETE FROM foods... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foodList.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/foodList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1514489464110" expanded="true" signature="199:218" ph="SELECT * FRO... foods" />
               </folding>
             </state>
           </provider>
@@ -142,6 +160,7 @@
         <option value="$PROJECT_DIR$/food.py" />
         <option value="$PROJECT_DIR$/create_tables.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/resources/foodList.py" />
         <option value="$PROJECT_DIR$/resources/food.py" />
       </list>
     </option>
@@ -153,10 +172,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="288" />
-    <option name="y" value="27" />
-    <option name="width" value="1900" />
-    <option name="height" value="817" />
+    <option name="x" value="1321" />
+    <option name="width" value="1890" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -319,14 +337,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="288" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20032051" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20032051" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33966482" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18536325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -402,6 +420,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -446,6 +465,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/user.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
@@ -456,14 +483,6 @@
             <marker date="1514464970445" expanded="true" signature="1098:1128" ph="SELECT * FRO... users" />
             <marker date="1514464970445" expanded="true" signature="2995:3056" ph="INSERT INTO users... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -482,24 +501,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="520">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/food.py">
+    <entry file="file://$PROJECT_DIR$/resources/foodList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+        <state relative-caret-position="156">
+          <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1514488425841" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
-            <marker date="1514488425841" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
-            <marker date="1514488425841" expanded="true" signature="3455:3681" ph="UPDATE foods... " />
-            <marker date="1514488425841" expanded="true" signature="6571:6607" ph="DELETE FROM foods... " />
+            <marker date="1514489464110" expanded="true" signature="199:218" ph="SELECT * FRO... foods" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/food.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="91" column="34" lean-forward="true" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1514490182447" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
+            <marker date="1514490182447" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
+            <marker date="1514490182447" expanded="true" signature="3455:3530" ph="UPDATE foods... " />
+            <marker date="1514490182447" expanded="true" signature="3455:3624" ph="UPDATE foods... " />
+            <marker date="1514490182447" expanded="true" signature="6503:6539" ph="DELETE FROM foods... " />
           </folding>
         </state>
       </provider>
