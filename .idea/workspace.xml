@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78892a65-247a-4b17-b902-5966c61989b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/data.db" afterPath="$PROJECT_DIR$/data.db" />
       <change beforePath="$PROJECT_DIR$/resources/food.py" afterPath="$PROJECT_DIR$/resources/food.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,13 +45,14 @@
       <file leaf-file-name="food.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/food.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="122" column="63" lean-forward="false" selection-start-line="122" selection-start-column="63" selection-end-line="122" selection-end-column="63" />
+            <state relative-caret-position="310">
+              <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1514487527553" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
-                <marker date="1514487527553" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
-                <marker date="1514487527553" expanded="true" signature="4728:4764" ph="DELETE FROM foods... " />
+                <marker date="1514488425841" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
+                <marker date="1514488425841" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
+                <marker date="1514488425841" expanded="true" signature="3455:3681" ph="UPDATE foods... " />
+                <marker date="1514488425841" expanded="true" signature="6571:6607" ph="DELETE FROM foods... " />
               </folding>
             </state>
           </provider>
@@ -492,13 +492,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/food.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="122" column="63" lean-forward="false" selection-start-line="122" selection-start-column="63" selection-end-line="122" selection-end-column="63" />
+        <state relative-caret-position="310">
+          <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1514487527553" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
-            <marker date="1514487527553" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
-            <marker date="1514487527553" expanded="true" signature="4728:4764" ph="DELETE FROM foods... " />
+            <marker date="1514488425841" expanded="true" signature="2537:2574" ph="SELECT * FRO... foods" />
+            <marker date="1514488425841" expanded="true" signature="2915:2979" ph="INSERT INTO foods... " />
+            <marker date="1514488425841" expanded="true" signature="3455:3681" ph="UPDATE foods... " />
+            <marker date="1514488425841" expanded="true" signature="6571:6607" ph="DELETE FROM foods... " />
           </folding>
         </state>
       </provider>
