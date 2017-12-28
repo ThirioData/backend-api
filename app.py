@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_jwt import JWT
 
 from security import authenticate, identity
-from models.user import UserRegister
+from resources.user import UserRegister
 from resources.food import Food
 from resources.foodList import FoodList
 
