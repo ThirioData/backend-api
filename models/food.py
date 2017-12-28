@@ -1,6 +1,20 @@
-import sqlite3
+from db import db
 
-class FoodModel:
+class FoodModel(db.Model):
+    __tablename__ = "foods"
+    food_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    food_name = db.Column(db.String(80))
+    food_calorie = db.Column(db.String(80))
+    food_type = db.Column(db.String(80))
+    food_cuisine = db.Column(db.String(80))
+    food_image = db.Column(db.String(200))
+    food_category = db.Column(db.String(80))
+    food_description = db.Column(db.String)
+    spice1 = db.Column(db.String(80))
+    spice2 = db.Column(db.String(80))
+    spice3 = db.Column(db.String(80))
+    spice4 = db.Column(db.String(80))
+
     def __init__(self, food_name, food_calorie, food_type, food_cuisine, food_image,food_category, food_description, spice1, spice2, spice3, spice4):
         self.food_name = food_name
         self.food_calorie = food_calorie
@@ -31,38 +45,12 @@ class FoodModel:
 
     @classmethod
     def find_by_food_name(cls, food_name):
-        connection = sqlite3.connect("data.db")
-        cursor = connection.cursor()
-        query = "SELECT * FROM foods WHERE food_name=?"
-        result = cursor.execute(query, (food_name,))
-        row = result.fetchone()
-        connection.close()
-        if row:
-            # return cls(*row)
-            return {
-                "Foods": row
-            }
+        return cls.query.filter_by(food_name=food_name).first()
 
-    # @classmethod
-    def insert(self):
-        connection = sqlite3.connect("data.db")
-        cursor = connection.cursor()
-        query = "INSERT INTO foods VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        cursor.execute(query, (
-            self.food_name, self.food_calorie, self.food_type, self.food_cuisine, self.food_image,
-            self.food_category, self.food_description, self.spice1, self.spice2, self.spice3,
-            self.spice4))
-        connection.commit()
-        connection.close()
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()
 
-    # @classmethod
-    def update(self):
-        connection = sqlite3.connect("data.db")
-        cursor = connection.cursor()
-        query = "UPDATE foods SET food_calorie=?, food_type=?, food_cuisine=?, food_image=?, food_category=?, food_description=?, spice1=?, spice2=?, spice3=?, spice4=? WHERE food_name=?"
-        cursor.execute(query, (
-            self.food_calorie, self.food_type, self.food_cuisine, self.food_image,
-            self.food_category, self.food_description, self.spice1, self.spice2, self.spice3,
-            self.spice4, self.food_name,))
-        connection.commit()
-        connection.close()
+    def delete_from_db(self):
+        db.session.delete(self)
+        db.session.commit()

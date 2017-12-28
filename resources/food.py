@@ -1,4 +1,3 @@
-import sqlite3
 from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 from models.food import FoodModel
@@ -61,42 +60,27 @@ class Food(Resource):
                         help="spice4 inside the food"
                         )
 
-    # @jwt_required()
+    @jwt_required()
     def get(self, food_name):
         food = FoodModel.find_by_food_name(food_name)
         if food:
             # return food.json()
-            return food
+            return food.json()
         return {
             "message": "No food item found"
         }, 404
 
-    # @jwt_required()
+    @jwt_required()
     def post(self, food_name):
         food = FoodModel.find_by_food_name(food_name)
         if food:
             return {
-                "message": "food food_name with '{}' already exists".format(food_name),
-                "food": food
-                # "dodo": "lives here '{}'".format(self)
+                "message": "food food_name with '{}' already exists".format(food_name)
             }, 400
         data = Food.parser.parse_args()
-        # food = {
-        #     "food_name": data['food_name'],
-        #     "food_calorie": data['food_calorie'],
-        #     "food_type": data['food_type'],
-        #     "food_cuisine": data['food_cuisine'],
-        #     "food_image": data['food_image'],
-        #     "food_category": data['food_category'],
-        #     "food_description": data['food_description'],
-        #     "spice1": data['spice1'],
-        #     "spice2": data['spice2'],
-        #     "spice3": data['spice3'],
-        #     "spice4": data['spice4']
-        # }
         food = FoodModel(data['food_name'], data['food_calorie'], data['food_type'], data['food_cuisine'], data['food_image'], data['food_category'], data['food_description'], data['spice1'], data['spice2'], data['spice3'], data['spice4'])
         try:
-            food.insert()
+            food.save_to_db()
         except:
             return {
                 "message": "Error occured durig insertion"
@@ -107,44 +91,29 @@ class Food(Resource):
     def put(self, food_name):
         data = Food.parser.parse_args()
         food = FoodModel.find_by_food_name(food_name)
-        # updated_food = {
-        #     # "food_name": data['food_name'],
-        #     "food_calorie": data['food_calorie'],
-        #     "food_type": data['food_type'],
-        #     "food_cuisine": data['food_cuisine'],
-        #     "food_image": data['food_image'],
-        #     "food_category": data['food_category'],
-        #     "food_description": data['food_description'],
-        #     "spice1": data['spice1'],
-        #     "spice2": data['spice2'],
-        #     "spice3": data['spice3'],
-        #     "spice4": data['spice4']
-        # }
-        updated_food = FoodModel(data['food_name'], data['food_calorie'], data['food_type'], data['food_cuisine'], data['food_image'], data['food_category'], data['food_description'], data['spice1'], data['spice2'], data['spice3'], data['spice4'])
-        if food is None:
-            try:
-                updated_food.insert()
-            except:
-                return {
-                    "message": "Server insertion error on insert"
-                }, 500
-        else:
-            try:
-                updated_food.update()
-            except:
-                return {
-                    "message": "error occured on update"
-                }, 500
-        return updated_food.json()
 
-    # @jwt_required()
+        if food is None:
+            food = FoodModel(data['food_name'], data['food_calorie'], data['food_type'], data['food_cuisine'], data['food_image'], data['food_category'], data['food_description'], data['spice1'], data['spice2'], data['spice3'], data['spice4'])
+        else:
+            food.food_name = data['food_name']
+            food.food_calorie = data['food_calorie']
+            food.food_type = data['food_type']
+            food.food_cuisine = data['food_cuisine']
+            food.food_image = data['food_image']
+            food.food_category = data['food_category']
+            food.food_description = data['food_description']
+            food.spice1 = data['spice1']
+            food.spice2 = data['spice2']
+            food.spice3 = data['spice3']
+            food.spice4 = data['spice4']
+        food.save_to_db()
+        return food.json()
+
+    @jwt_required()
     def delete(self, food_name):
-        connection = sqlite3.connect("data.db")
-        cursor = connection.cursor()
-        query = "DELETE FROM foods WHERE food_name =?"
-        result = cursor.execute(query, (food_name,))
-        connection.commit()
-        connection.close()
+        food = FoodModel.find_by_food_name(food_name)
+        if food:
+            food.delete_from_db()
         return {
             "message": "Successfully deleted {}".format(food_name)
         }
