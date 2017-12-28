@@ -23,7 +23,7 @@ class HelloDodo(Resource):
         "author": "OoOO"
     }
 
-api.add_resource(HelloDodo, '/home')
+api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
 # add foods endpoint here
 api.add_resource(Food, '/food/<string:food_name>')
