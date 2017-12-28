@@ -21,4 +21,6 @@ pip install psycopg2
 Implementation with flask and flask-restfull with auth using JWT token.
 
 ##Run the project
+```
 python app.py
+```
