@@ -4,6 +4,7 @@ from flask_jwt import JWT
 
 from security import authenticate, identity
 from models.user import UserRegister
+from resources.food import Food
 
 app = Flask(__name__)
 app.secret_key = "Dodo@N9"
@@ -12,6 +13,7 @@ jwt = JWT(app, authenticate, identity)
 
 api.add_resource(UserRegister, '/register')
 # add foods endpoint here
-api.add_resource(FoodList, '/')
+api.add_resource(Food, '/food/<string:food_name>')
 
-app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
