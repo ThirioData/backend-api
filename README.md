@@ -1,14 +1,14 @@
 **API WITH PYTHON Flask-Restful**
 
 ###
-#This api is using flask with postgres sql
+# This api is using flask with postgres sql
 
-##Run it in virtual environment
+## Run it in virtual environment
 ```
 source venv/bin/activate
 ```
 
-##Installation
+## Installation
 ```
 pip install Flask
 pip install Flask-RESTful
@@ -18,9 +18,9 @@ pip install psycopg2
 ```
 
 ## Description
-Implementation with flask and flask-restfull with auth using JWT token.
+### Implementation with flask and flask-restfull with auth using JWT token.
 
-##Run the project
+## Run the project
 ```
 python app.py
 ```
