@@ -52,4 +52,4 @@ class UserRegister(Resource):
 
         return {
             "message": "successfully signed up"
-        }, 201
+        }, 201, {'Access-Control-Allow-Origin': '*'}
