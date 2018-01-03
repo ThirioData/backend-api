@@ -45,7 +45,7 @@ class UserRegister(Resource):
         if UserModel.find_by_username(data['username']):
             return {
                 "message": "A user already exists with this userxxxxxxxxxxxxxxxname"
-            }, 400
+            }, 400, {'Access-Control-Allow-Origin': '*'}
 
         user = UserModel(**data)
         user.save_to_db()

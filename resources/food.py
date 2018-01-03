@@ -68,7 +68,7 @@ class Food(Resource):
             return food.json()
         return {
             "message": "No food item found"
-        }, 404
+        }, 404, {'Access-Control-Allow-Origin': '*'}
 
     @jwt_required()
     def post(self, food_name):
@@ -76,7 +76,7 @@ class Food(Resource):
         if food:
             return {
                 "message": "food food_name with '{}' already exists".format(food_name)
-            }, 400
+            }, 400, {'Access-Control-Allow-Origin': '*'}
         data = Food.parser.parse_args()
         food = FoodModel(data['food_name'], data['food_calorie'], data['food_type'], data['food_cuisine'], data['food_image'], data['food_category'], data['food_description'], data['spice1'], data['spice2'], data['spice3'], data['spice4'])
         try:
@@ -84,8 +84,8 @@ class Food(Resource):
         except:
             return {
                 "message": "Error occured durig insertion"
-            }, 500
-        return food.json(), 201
+            }, 500, {'Access-Control-Allow-Origin': '*'}
+        return food.json(), 201, {'Access-Control-Allow-Origin': '*'}
 
     # @jwt_required()
     def put(self, food_name):
@@ -107,7 +107,7 @@ class Food(Resource):
             food.spice3 = data['spice3']
             food.spice4 = data['spice4']
         food.save_to_db()
-        return food.json()
+        return food.json(), {'Access-Control-Allow-Origin': '*'}
 
     @jwt_required()
     def delete(self, food_name):
@@ -116,4 +116,4 @@ class Food(Resource):
             food.delete_from_db()
         return {
             "message": "Successfully deleted {}".format(food_name)
-        }
+        }, {'Access-Control-Allow-Origin': '*'}
