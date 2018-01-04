@@ -68,7 +68,7 @@ class Food(Resource):
             return food.json()
         return {
             "message": "No food item found"
-        }, 404, {'Access-Control-Allow-Origin': '*'}
+        }, 404
 
     @jwt_required()
     def post(self, food_name):
@@ -84,8 +84,8 @@ class Food(Resource):
         except:
             return {
                 "message": "Error occured durig insertion"
-            }, 500, {'Access-Control-Allow-Origin': '*'}
-        return food.json(), 201, {'Access-Control-Allow-Origin': '*'}
+            }, 500
+        return food.json(), 201
 
     # @jwt_required()
     def put(self, food_name):
@@ -116,4 +116,4 @@ class Food(Resource):
             food.delete_from_db()
         return {
             "message": "Successfully deleted {}".format(food_name)
-        }, {'Access-Control-Allow-Origin': '*'}
+        }

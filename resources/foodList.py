@@ -6,4 +6,4 @@ class FoodList(Resource):
     def get(self):
         return {
             "foods": [food.json() for food in FoodModel.query.all()]
-        }, 200, {'Access-Control-Allow-Origin': '*'}
+        }, 200

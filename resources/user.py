@@ -45,11 +45,11 @@ class UserRegister(Resource):
         if UserModel.find_by_username(data['username']):
             return {
                 "message": "A user already exists with this userxxxxxxxxxxxxxxxname"
-            }, 400, {'Access-Control-Allow-Origin': '*'}
+            }, 400
 
         user = UserModel(**data)
         user.save_to_db()
 
         return {
             "message": "successfully signed up"
-        }, 201, {'Access-Control-Allow-Origin': '*'}
+        }, 201
