@@ -15,6 +15,7 @@ pip install Flask-RESTful
 Pip install Flask-JWT
 pip install Flask-SQLAlchemy
 pip install psycopg2
+pip install Flask-Cors
 ```
 
 ## Description
