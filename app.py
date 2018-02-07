@@ -35,7 +35,7 @@ class Recommend(Resource):
     @jwt_required()
     def get(self):
         dodo = current_identity
-        return dodo.json()
+        return dodo
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
