@@ -26,8 +26,8 @@ class UserModel(db.Model):
         self.non_veg = non_veg
         self.user_guid = user_guid
 
-    def __repr__(self):
-        return self.username
+    # def __repr__(self):
+    #     return self.username
 
     @classmethod
     def find_by_username(cls, username):
