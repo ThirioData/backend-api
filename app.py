@@ -35,10 +35,11 @@ class Recommend(Resource):
     @jwt_required()
     def get(self):
         # print(current_identity.query.first())
-        dodo = UserModel.find_by_username(current_identity)
+        print(str(current_identity))
+        # dodo = UserModel.find_by_username(current_identity)
         # print(dodo)
         respons = {
-            "user_id": dodo.json()
+            "user_id": "dodo.json()"
         }
         return respons
 
