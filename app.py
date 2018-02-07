@@ -35,8 +35,7 @@ class Recommend(Resource):
     @jwt_required()
     def get(self):
         # print(current_identity.query.first())
-        dodo = current_identity.query.first()
-        print(type(dodo))
+        dodo = current_identity
         respons = {
             "user_id": dodo
         }
