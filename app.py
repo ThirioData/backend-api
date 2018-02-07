@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api, Resource
-from flask_jwt import JWT, jwt_required
+from flask_jwt import JWT, jwt_required, current_identity
 
 from security import authenticate, identity
 from resources.user import UserRegister
@@ -30,17 +30,19 @@ class HelloDodo(Resource):
 # def identify(payload):
 #     return User.query.filter(User.id == payload['identity']).scalar()
 
-# @jwt_required()
-# class Recommend(Resource):
-#     def get(self):
-#         dodo = identity()
+
+class Recommend(Resource):
+    @jwt_required()
+    def get(self):
+        dodo = dict(current_identity)
+        return dodo
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
 # add foods endpoint here
 api.add_resource(Food, '/food/<string:food_name>')
 api.add_resource(FoodList, '/foods')
-# api.add_resource(Recommend, '/dodo')
+api.add_resource(Recommend, '/dodo')
 
 if __name__ == '__main__':
     from db import db

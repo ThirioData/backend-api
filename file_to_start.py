@@ -34,4 +34,4 @@ def getrecommendation(user_id,user_feat = user_feat,new_user_feat = new_user_fea
     #print new_meal_size
     return result
 
-print(getrecommendation(520))
+# print(getrecommendation(520))
