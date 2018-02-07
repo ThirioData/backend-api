@@ -26,21 +26,21 @@ class HelloDodo(Resource):
         "author": "OoOO"
     }
 
-@jwt.identity_handler
-def identify(payload):
-    return User.query.filter(User.id == payload['identity']).scalar()
+# @jwt.identity_handler
+# def identify(payload):
+#     return User.query.filter(User.id == payload['identity']).scalar()
 
-@jwt_required()
-class Recommend(Resource):
-    def get(self):
-        dodo = identity()
+# @jwt_required()
+# class Recommend(Resource):
+#     def get(self):
+#         dodo = identity()
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
 # add foods endpoint here
 api.add_resource(Food, '/food/<string:food_name>')
 api.add_resource(FoodList, '/foods')
-api.add_resource(Recommend, '/dodo')
+# api.add_resource(Recommend, '/dodo')
 
 if __name__ == '__main__':
     from db import db
