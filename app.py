@@ -36,8 +36,7 @@ class Recommend(Resource):
     def get(self):
         # print(current_identity.query.first())
         dodo = current_identity.query.first()
-        for du in dodo:
-            print(du)
+        print(type(dodo))
         respons = {
             "user_id": dodo
         }
