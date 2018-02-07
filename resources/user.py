@@ -60,7 +60,7 @@ class UserRegister(Resource):
 
         user = UserModel(**data)
         # save to user_features
-        filds = [data['age'], 100, data['location'], data['non_veg'], data['sex'], 1, 1, data['user_guid']]
+        fields = [data['age'], 100, data['location'], data['non_veg'], data['sex'], 1, 1, data['user_guid']]
         with open(r'user_features', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(fields)
