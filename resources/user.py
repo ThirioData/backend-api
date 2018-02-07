@@ -42,7 +42,10 @@ class UserRegister(Resource):
                         )
     parser.add_argument("meal_size_rating",
                         type=int
-                        )
+                        ),
+    parser.add_argument("previous_meal_size",
+                        type=int
+                        ),
     parser.add_argument("user_guid",
                         type=int
                         )
