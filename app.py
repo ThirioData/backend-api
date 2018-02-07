@@ -34,9 +34,9 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        dodo = dict(current_identity)
+        dodo = current_identity
         respons = {
-            "user_id": dodo["user_id"]
+            "user_id": dodo.user_ud
         }
         return respons
 
