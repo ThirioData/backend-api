@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api, Resource
@@ -41,7 +42,7 @@ class Recommend(Resource):
         respons = {
             "user_id": "dodo.json()"
         }
-        return dict(current_identity)
+        return json.dumps(dict(current_identity))
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
