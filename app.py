@@ -42,7 +42,7 @@ class Recommend(Resource):
         respons = {
             "user_id": "dodo.json()"
         }
-        return current_identity.json()
+        return current_identity
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
