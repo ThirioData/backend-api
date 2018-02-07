@@ -37,7 +37,7 @@ class Recommend(Resource):
         print(current_identity.query.first())
         dodo = current_identity.query.first()
         respons = {
-            "user_id": dodo.json()
+            "user_id": dodo
         }
         return respons
 
