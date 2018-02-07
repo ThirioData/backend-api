@@ -34,7 +34,7 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        dodo = current_identity
+        dodo = dict(current_identity)
         return dodo
 
 api.add_resource(HelloDodo, '/')
