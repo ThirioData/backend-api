@@ -34,7 +34,7 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        print(current_identity)
+        print(current_identity.query.first())
         # dodo = UserModel.find_by_id(current_identity)
         # respons = {
         #     "user_id": dodo.json()
