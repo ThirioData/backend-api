@@ -36,9 +36,9 @@ class Recommend(Resource):
     def get(self):
         # print(current_identity.query.first())
         dodo = UserModel.find_by_username(str(current_identity))
-        print(dodo)
+        # print(dodo)
         respons = {
-            "user_id": dodo.json()
+            "user_id": dict(dodo)
         }
         return respons
 
