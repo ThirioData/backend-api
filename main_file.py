@@ -159,7 +159,7 @@ while next_day :
 
         qwe = new_user_feat.iloc[indexer]['bought']
 
-        if isinstance(qwe,basestring):
+        if isinstance(qwe,str):
             qwe = ast.literal_eval(qwe)
             temp_listy =  qwe
         temp_listy.append(order)
@@ -187,7 +187,7 @@ while next_day :
         #update feedback
         user_feat.loc[indexer,'meal_size_rating'] = quantity_rate
         user_feat.to_csv('user_features.csv',encoding='utf-8',index=False)
-        
+
     elif entry == 0:
         main_recommend.change_recommendation(user_feat,spice_feat,new_user_feat)
         #print ("table updated to next day")
