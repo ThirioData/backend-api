@@ -34,11 +34,12 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        dodo = UserModel.find_by_id(current_identity)
-        respons = {
-            "user_id": dodo.json()
-        }
-        return respons
+        print(current_identity)
+        # dodo = UserModel.find_by_id(current_identity)
+        # respons = {
+        #     "user_id": dodo.json()
+        # }
+        return {respons: "dodo"}
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
