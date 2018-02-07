@@ -36,7 +36,7 @@ class Recommend(Resource):
     def get(self):
         dodo = current_identity
         respons = {
-            "user_id": dodo.user_ud
+            "user_id": dodo.user_id
         }
         return respons
 
