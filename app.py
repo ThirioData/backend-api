@@ -34,9 +34,10 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        print(current_identity.query.first())
-        dodo = dict(current_identity.query.first())
-
+        # print(current_identity.query.first())
+        dodo = current_identity.query.first()
+        for du in dodo:
+            print(du)
         respons = {
             "user_id": dodo
         }
