@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api, Resource
-from flask_jwt import JWT
+from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
 from resources.user import UserRegister
