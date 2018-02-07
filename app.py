@@ -6,6 +6,7 @@ from flask_jwt import JWT
 
 from security import authenticate, identity
 from resources.user import UserRegister
+from models.user import UserModel
 from resources.food import Food
 from resources.foodList import FoodList
 
@@ -25,11 +26,21 @@ class HelloDodo(Resource):
         "author": "OoOO"
     }
 
+@jwt.identity_handler
+def identify(payload):
+    return User.query.filter(User.id == payload['identity']).scalar()
+
+@jwt_required()
+class Recommend(Resource):
+    def get(self):
+        dodo = identity()
+
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
 # add foods endpoint here
 api.add_resource(Food, '/food/<string:food_name>')
 api.add_resource(FoodList, '/foods')
+api.add_resource(Recommend, '/dodo')
 
 if __name__ == '__main__':
     from db import db

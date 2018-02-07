@@ -64,6 +64,7 @@ class UserRegister(Resource):
         with open(r'user_features', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(fields)
+        
         user.save_to_db()
 
         return {
