@@ -22,7 +22,7 @@ app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 # config JWT auth key name to be 'email' instead of default 'username'
 app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 api = Api(app)
-
+# from app.jwt import authenticate, identity # Must import these after the database connection is made
 jwt = JWT(app, authenticate, identity)
 
 class HelloDodo(Resource):
@@ -42,7 +42,7 @@ class Recommend(Resource):
     def get(self):
         # Access the identity of the current user with get_jwt_identity
         current_user = get_jwt_identity()
-        return jsonify(logged_in_as=current_user), 200
+        return current_identity, 200
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
