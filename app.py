@@ -10,6 +10,7 @@ from resources.user import UserRegister
 from models.user import UserModel
 from resources.food import Food
 from resources.foodList import FoodList
+from file_to_start import getrecommendation
 
 app = Flask(__name__)
 CORS(app)
@@ -43,8 +44,9 @@ class Recommend(Resource):
         # Access the identity of the current user with get_jwt_identity
         # current_user = get_jwt_identity()
         userId = int(getattr(current_identity, 'id', None))
-        currentUser = UserModel.find_by_id(userId)
-        return jsonify(currentUser), 200
+        # currentUser = UserModel.find_by_id(userId)
+        recommendation = getrecommendation(userId)
+        return recommendation, 200
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
