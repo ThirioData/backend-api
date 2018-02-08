@@ -44,7 +44,7 @@ class Recommend(Resource):
         # current_user = get_jwt_identity()
         userId = int(getattr(current_identity, 'id', None))
         currentUser = UserModel.find_by_id(userId)
-        return currentUser.json(), 200
+        return jsonify(currentUser), 200
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
