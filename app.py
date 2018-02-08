@@ -1,9 +1,13 @@
 import os
 import json
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api, Resource
 from flask_jwt import JWT, jwt_required, current_identity
+from flask_jwt_extended import (
+    JWTManager, jwt_required, create_access_token,
+    get_jwt_identity
+)
 
 from security import authenticate, identity
 from resources.user import UserRegister
@@ -35,14 +39,9 @@ class HelloDodo(Resource):
 class Recommend(Resource):
     @jwt_required()
     def get(self):
-        # print(current_identity.query.first())
-        print(current_identity.parser.parse_args())
-        # dodo = UserModel.find_by_username(current_identity)
-        # print(dodo)
-        respons = {
-            "user_id": "dodo.json()"
-        }
-        return current_identity
+        # Access the identity of the current user with get_jwt_identity
+        current_user = get_jwt_identity()
+        return jsonify(logged_in_as=current_user), 200
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
