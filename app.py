@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "Dodo@N9"
 app.config['JWT_AUTH_URL_RULE'] = '/login'
 # config JWT to expire within half an hour
-app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
+# app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 # config JWT auth key name to be 'email' instead of default 'username'
 app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 api = Api(app)
