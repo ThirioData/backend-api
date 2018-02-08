@@ -42,8 +42,9 @@ class Recommend(Resource):
     def get(self):
         # Access the identity of the current user with get_jwt_identity
         # current_user = get_jwt_identity()
-        dodo = getattr(current_identity, 'id', None)
-        return {"dodo": str(dodo)}, 200
+        userId = int(getattr(current_identity, 'id', None))
+        currentUser = UserModel.find_by_id(userId)
+        return currentUser.json(), 200
 
 api.add_resource(HelloDodo, '/')
 api.add_resource(UserRegister, '/register')
