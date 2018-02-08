@@ -4,10 +4,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api, Resource
 from flask_jwt import JWT, jwt_required, current_identity
-from flask_jwt_extended import (
-    JWTManager, jwt_required, create_access_token,
-    get_jwt_identity
-)
 
 from security import authenticate, identity
 from resources.user import UserRegister
@@ -20,6 +16,11 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///data.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "Dodo@N9"
+app.config['JWT_AUTH_URL_RULE'] = '/login'
+# config JWT to expire within half an hour
+app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
+# config JWT auth key name to be 'email' instead of default 'username'
+app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity)
