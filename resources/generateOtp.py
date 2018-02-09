@@ -43,4 +43,7 @@ class Verify(Resource):
         data = Verify.parser.parse_args()
         mobileno, token = data['mobileno'], data['token']
         oldUser = TwilioHelper()
-        oldUser.verify(mobileno, token)
+        message = oldUser.verify(mobileno, token)
+        return {
+            message: message
+        }

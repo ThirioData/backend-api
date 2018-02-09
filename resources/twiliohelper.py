@@ -32,11 +32,7 @@ class TwilioHelper:
     def verify(self, phone_number, token):
         verification = api.phones.verification_check(phone_number, "+91", token)
         if verification.ok():
-            return {
-                "message": "successfully verified the mobile no"
-            }, 201
+            return "success"
 
         # Error in verification    
-        return {
-            "message": "Error verifying the phone no"
-        }
+        return "failure"
