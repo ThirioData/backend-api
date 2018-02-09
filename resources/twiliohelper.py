@@ -12,3 +12,9 @@ class TwilioHelper:
         twilio_number = app.config['TWILIO_NUMBER']
         client = Client(account_sid, auth_token)
         client.api.messages.create(to_number, from_=twilio_number, body=body)
+
+    def send_confirmation_code(to_number):
+        verification_code = generate_code()
+        send_sms(to_number, verification_code)
+        session['verification_code'] = verification_code
+        return verification_code    

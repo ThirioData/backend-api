@@ -20,7 +20,9 @@ class VerifyOtp(Resource):
         data = VerifyOtp.parser.parse_args()
         if UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
-            code = TwilioHelper.generate_code()
+            toNumber = int(data['mobileno'])
+            mobno = '+91' + str(toNumber)
+            code = TwilioHelper.send_confirmation_code(mobno)
             return {
                 code: code
             }
