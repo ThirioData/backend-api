@@ -15,7 +15,7 @@ class UserModel(db.Model):
     user_guid = db.Column(db.Integer)
     mobileno = db.Column(db.Integer)
 
-    def __init__(self, username, password, email, firstname, lastname, age, sex, location, non_veg, user_guid):
+    def __init__(self, username, password, email, firstname, lastname, age, sex, location, non_veg, user_guid, mobileno):
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
