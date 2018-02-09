@@ -11,7 +11,7 @@ def send_sms(to_number, body):
     auth_token = 'dc68342dfa63281de3ab78131a9fa200'
     twilio_number = '+16196482390'
     client = Client(account_sid, auth_token)
-    client.api.messages.create(to_number, from_=twilio_number, body=body)
+    client.messages.create(to_number, from_=twilio_number, body=body)
 
 # @classmethod
 class TwilioHelper:
