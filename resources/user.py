@@ -38,7 +38,7 @@ class UserRegister(Resource):
                         type=int
                         )
     parser.add_argument("mobileno",
-                        type=int    
+                        type=str    
                         )
     # parser.add_argument("calories",
     #                     type=int
