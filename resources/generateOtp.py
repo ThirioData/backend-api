@@ -42,4 +42,5 @@ class Verify(Resource):
     def post(self):
         data = Verify.parser.parse_args()
         mobileno, token = data['mobileno'], data['token']
-        TwilioHelper.verify(mobileno, token)
+        oldUser = TwilioHelper()
+        oldUser.verify(mobileno, token)
