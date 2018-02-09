@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 # import the modal for accessing it's method
 from models.user import UserModel
-from .twiliohelper import send_sms, generate_code
+from resources.twiliohelper import TwilioHelper
 
 class VerifyOtp(Resource):
     """ already signup user verifying for otp"""
@@ -20,7 +20,7 @@ class VerifyOtp(Resource):
         data = VerifyOtp.parser.parse_args()
         if UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
-            code = generate_code()
+            code = TwilioHelper.generate_code()
             return {
                 code: code
             }
