@@ -13,6 +13,7 @@ class UserModel(db.Model):
     location = db.Column(db.String(80))
     non_veg = db.Column(db.String(80))
     user_guid = db.Column(db.Integer)
+    mobileno = db.Column(db.Integer)
 
     def __init__(self, username, password, email, firstname, lastname, age, sex, location, non_veg, user_guid):
         self.firstname = firstname
@@ -25,6 +26,7 @@ class UserModel(db.Model):
         self.location = location
         self.non_veg = non_veg
         self.user_guid = user_guid
+        self.mobileno = mobileno
 
     # def __repr__(self):
     #     return self.username

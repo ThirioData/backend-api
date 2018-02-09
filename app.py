@@ -11,6 +11,7 @@ from models.user import UserModel
 from resources.food import Food
 from resources.foodList import FoodList
 from resources.order import Order
+from resources.verifyOtp import VerifyOtp
 from file_to_start import getrecommendation
 
 app = Flask(__name__)
@@ -55,6 +56,7 @@ api.add_resource(UserRegister, '/register')
 api.add_resource(Food, '/food/<string:food_name>')
 api.add_resource(FoodList, '/foods')
 api.add_resource(Recommend, '/dodo')
+api.add_resource(VerifyOtp, '/verify')
 
 
 if __name__ == '__main__':
