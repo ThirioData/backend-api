@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 # import the modal for accessing it's method
 from models.user import UserModel
-from resources.twiliohelper import send_confirmation_code
+from resources.twiliohelper import TwilioHelper
 
 class VerifyOtp(Resource):
     """ already signup user verifying for otp"""
@@ -23,7 +23,7 @@ class VerifyOtp(Resource):
             toNumber = int(data['mobileno'])
             mobno = '+91' + str(toNumber)
             print(mobno)
-            code = send_confirmation_code(mobno)
+            code = TwilioHelper.send_confirmation_code(mobno)
             return {
                 code: code
             }
