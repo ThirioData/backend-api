@@ -16,8 +16,7 @@ def send_sms(to_number, body):
 # @classmethod
 class TwilioHelper:
 
-    @classmethod
-    def send_confirmation_code(cls, to_number):
+    def send_confirmation_code(self, to_number):
         verification_code = generate_code()
         send_sms(to_number, verification_code)
         print("send_confirmation")

@@ -23,7 +23,8 @@ class VerifyOtp(Resource):
             toNumber = int(data['mobileno'])
             mobno = '+91' + str(toNumber)
             print(mobno)
-            code = TwilioHelper.send_confirmation_code(mobno)
+            oldUser = TwilioHelper()
+            code = oldUser.send_confirmation_code(mobno)
             return {
                 code: code
             }
