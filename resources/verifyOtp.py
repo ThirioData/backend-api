@@ -19,6 +19,7 @@ class VerifyOtp(Resource):
         data = VerifyOtp.parser.parser_args()
         if not UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
+            pass
         else:
             return {
                 "message": "You are not registered user"
