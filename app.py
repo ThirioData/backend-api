@@ -12,7 +12,6 @@ from models.user import UserModel
 from resources.food import Food
 from resources.foodList import FoodList
 from resources.order import Order
-from resources.verifyOtp import VerifyOtp
 from file_to_start import getrecommendation
 
 app = Flask(__name__)
@@ -44,6 +43,83 @@ class HelloDodo(Resource):
         "message": "Welcome to the api",
         "author": "OoOO"
     }
+
+
+
+
+
+
+
+class VerifyOtp(Resource):
+    """ already signup user verifying for otp"""
+    # get the useremail and related data
+    parser = reqparse.RequestParser()
+    parser.add_argument("company", type=str, required=True, help="Please select company name")
+    parser.add_argument("name", type=str, required=True, help="Your name")
+    parser.add_argument("username", type=str, required=True, help="Username")
+    parser.add_argument("mobileno", type=str, required=True, help="Your mobile number")
+
+
+    # @jwt_required()
+    def post(self):
+        """ User must already registered """
+        data = VerifyOtp.parser.parse_args()
+        if UserModel.find_by_username(data['username']):
+            # send otp to the user phone no.
+            toNumber = int(data['mobileno'])
+            mobno = str(toNumber)
+            oldUser = TwilioHelper()
+            code = oldUser.send_confirmation_code(mobno)
+            return {
+                code: code
+            }
+        else:
+            return {
+                "message": "You are not registered user"
+            }, 400
+
+
+def generate_code():
+    return str(random.randrange(100000, 999999))
+
+def send_sms(to_number, body):
+    account_sid = 'ACf47c31d9ae7326a853f37ecec24bfdef'
+    auth_token = 'dc68342dfa63281de3ab78131a9fa200'
+    # auth_api_key = 'MH4y8ZkYq7HHcnx683vVRJ7qWeabIpan'
+    twilio_number = '+16196482390'
+    client = Client(account_sid, auth_token)
+    # api = TwilioApi()
+    twilioapi.phones.verification_start(to_number, '+91', via='sms')
+    phoneNo = "+91" + to_number
+    message = client.messages.create(phoneNo, from_=twilio_number, body=body)
+
+
+class TwilioHelper:
+    # @classmethod
+    def send_confirmation_code(self, to_number):
+        verification_code = generate_code()
+        send_sms(to_number, verification_code)
+        # print("send_confirmation")
+        return verification_code
+
+    def verify(self, phone_number, token):
+        # api = TwilioApi()
+        verification = twilioapi.phones.verification_check(phone_number, "+91", token)
+        if verification.ok():
+            return {
+                "message": "successfully verified the mobile no"
+            }, 201
+
+        # Error in verification    
+        return {
+            "message": "Error verifying the phone no"
+        }
+
+
+
+
+
+
 
 # @jwt.identity_handler
 # def identify(payload):
