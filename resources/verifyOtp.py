@@ -16,7 +16,7 @@ class VerifyOtp(Resource):
     # @jwt_required()
     def post(self):
         """ User must already registered """
-        data = VerifyOtp.parser.parser_args()
+        data = VerifyOtp.parser.parse_args()
         if not UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
             pass
