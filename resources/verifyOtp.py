@@ -22,6 +22,7 @@ class VerifyOtp(Resource):
             # send otp to the user phone no.
             toNumber = int(data['mobileno'])
             mobno = '+91' + str(toNumber)
+            print(mobno)
             code = TwilioHelper.send_confirmation_code(mobno)
             return {
                 code: code
