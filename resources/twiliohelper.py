@@ -11,7 +11,8 @@ def send_sms(to_number, body):
     auth_token = 'dc68342dfa63281de3ab78131a9fa200'
     twilio_number = '+16196482390'
     client = Client(account_sid, auth_token)
-    client.messages.create(to_number, from_=twilio_number, body=body)
+    message = client.messages.create(to_number, from_=twilio_number, body=body)
+    print(message.sid)
 
 # @classmethod
 class TwilioHelper:
@@ -19,5 +20,5 @@ class TwilioHelper:
     def send_confirmation_code(self, to_number):
         verification_code = generate_code()
         send_sms(to_number, verification_code)
-        print("send_confirmation")
+        # print("send_confirmation")
         return verification_code    
