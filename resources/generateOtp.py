@@ -4,7 +4,7 @@ from flask_jwt import jwt_required
 from models.user import UserModel
 from resources.twiliohelper import TwilioHelper
 
-class VerifyOtp(Resource):
+class GenerateOtp(Resource):
     """ already signup user verifying for otp"""
     # get the useremail and related data
     parser = reqparse.RequestParser()
