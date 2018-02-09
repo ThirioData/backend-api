@@ -37,7 +37,7 @@ class UserRegister(Resource):
     parser.add_argument("non_veg",
                         type=int
                         )
-    parser.add_argument("mobileno".
+    parser.add_argument("mobileno",
                         type=int    
                         )
     # parser.add_argument("calories",
