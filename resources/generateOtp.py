@@ -17,7 +17,7 @@ class GenerateOtp(Resource):
     # @jwt_required()
     def post(self):
         """ User must already registered """
-        data = VerifyOtp.parser.parse_args()
+        data = GenerateOtp.parser.parse_args()
         if UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
             toNumber = int(data['mobileno'])
@@ -32,3 +32,14 @@ class GenerateOtp(Resource):
                 "message": "You are not registered user"
             }, 400
 
+
+class Verify(Resource):
+    # get the useremail and related data
+    parser = reqparse.RequestParser()
+    parser.add_argument("mobileno", type=str, required=True, help="Your mobile number")
+    parser.add_argument("token", type=int, required=True, help="your token")
+
+    def post(self):
+        data = Verify.parser.parse_args()
+        mobileno, token = data['mobileno'], data['token']
+        TwilioHelper.verify(mobileno, token)
