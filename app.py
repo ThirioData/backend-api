@@ -11,7 +11,7 @@ from models.user import UserModel
 from resources.food import Food
 from resources.foodList import FoodList
 from resources.order import Order
-from resources.generateOtp import GenerateOtp
+from resources.generateOtp import GenerateOtp, Verify
 from file_to_start import getrecommendation
 
 app = Flask(__name__)
@@ -61,6 +61,7 @@ api.add_resource(Food, '/food/<string:food_name>')
 api.add_resource(FoodList, '/foods')
 api.add_resource(Recommend, '/dodo')
 api.add_resource(GenerateOtp, '/otpgenerate')
+api.add_resource(Verify, '/otpverify')
 
 
 if __name__ == '__main__':
