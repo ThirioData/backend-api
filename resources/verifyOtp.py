@@ -2,6 +2,7 @@ from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 # import the modal for accessing it's method
 from models.user import UserModel
+from .twiliohelper import send_sms, generate_code
 
 class VerifyOtp(Resource):
     """ already signup user verifying for otp"""
@@ -10,16 +11,19 @@ class VerifyOtp(Resource):
     parser.add_argument("company", type=str, required=True, help="Please select company name")
     parser.add_argument("name", type=str, required=True, help="Your name")
     parser.add_argument("username", type=str, required=True, help="Username")
-    parser.add_argument("mobileno", type=int, required=True, help="Your mobile number")
+    parser.add_argument("mobileno", type=str, required=True, help="Your mobile number")
 
 
     # @jwt_required()
     def post(self):
         """ User must already registered """
         data = VerifyOtp.parser.parse_args()
-        if not UserModel.find_by_username(data['username']):
+        if UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
-            pass
+            code = generate_code()
+            return {
+                code: code
+            }
         else:
             return {
                 "message": "You are not registered user"

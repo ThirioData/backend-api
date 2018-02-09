@@ -18,6 +18,10 @@ app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "postgresql://localhost/oooo")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# twilio config
+app.config['TWILIO_ACCOUNT_SID'] = 'ACf47c31d9ae7326a853f37ecec24bfdef'
+app.config['TWILIO_AUTH_TOKEN'] = 'dc68342dfa63281de3ab78131a9fa200'
+app.config['TWILIO_NUMBER'] = 16196482390
 app.secret_key = "Dodo@N9"
 app.config['JWT_AUTH_URL_RULE'] = '/login'
 # config JWT to expire within half an hour
