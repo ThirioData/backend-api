@@ -18,7 +18,7 @@ class VerifyOtp(Resource):
     def post(self):
         """ User must already registered """
         data = VerifyOtp.parser.parse_args()
-        if not UserModel.find_by_username(data['username']):
+        if UserModel.find_by_username(data['username']):
             # send otp to the user phone no.
             code = generate_code()
             return {
