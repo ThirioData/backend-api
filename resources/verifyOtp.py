@@ -13,7 +13,7 @@ class VerifyOtp(Resource):
     parser.add_argument("mobileno", type=int, required=True, help="Your mobile number")
 
 
-    @jwt_required()
+    # @jwt_required()
     def post(self):
         """ User must already registered """
         data = VerifyOtp.parser.parser_args()
