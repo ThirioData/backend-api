@@ -1,4 +1,4 @@
-from app import app
+from .. import app
 from twilio.rest import Client
 import random
 

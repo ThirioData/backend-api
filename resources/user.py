@@ -58,7 +58,7 @@ class UserRegister(Resource):
         # data['calories'] = 100
         if UserModel.find_by_username(data['username']):
             return {
-                "message": "A user already exists with this userxxxxxxxxxxxxxxxname"
+                "message": "A user already exists with this username %s".format(data['username']) 
             }, 400
 
         user = UserModel(**data)
