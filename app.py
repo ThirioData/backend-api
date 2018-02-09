@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api, Resource
 from flask_jwt import JWT, jwt_required, current_identity
+from authy.api import AuthyApiClient
 
 from security import authenticate, identity
 from resources.user import UserRegister
@@ -24,6 +25,7 @@ app.config['TWILIO_AUTH_TOKEN'] = 'dc68342dfa63281de3ab78131a9fa200'
 app.config['TWILIO_NUMBER'] = '+16196482390'
 app.secret_key = "Dodo@N9"
 app.config['JWT_AUTH_URL_RULE'] = '/login'
+twilioapi = AuthyApiClient(app.config['MH4y8ZkYq7HHcnx683vVRJ7qWeabIpan'])
 # config JWT to expire within half an hour
 # app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 # config JWT auth key name to be 'email' instead of default 'username'

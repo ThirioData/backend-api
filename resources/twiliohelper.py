@@ -1,9 +1,7 @@
 # from app import app
 from twilio.rest import Client
-from authy.api import AuthyApiClient
+from app import twilioapi
 import random
-
-api = AuthyApiClient(app.config['MH4y8ZkYq7HHcnx683vVRJ7qWeabIpan'])
 
 
 def generate_code():
@@ -27,4 +25,16 @@ class TwilioHelper:
         verification_code = generate_code()
         send_sms(to_number, verification_code)
         # print("send_confirmation")
-        return verification_code    
+        return verification_code
+
+    def verify(self, phone_number, token):
+        verification = api.phones.verification_check(phone_number, "+91", token)
+        if verification.ok():
+            return {
+                "message": "successfully verified the mobile no"
+            }, 201
+
+        # Error in verification    
+        return {
+            "message": "Error verifying the phone no"
+        }
