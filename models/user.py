@@ -13,7 +13,7 @@ class UserModel(db.Model):
     location = db.Column(db.String(80))
     non_veg = db.Column(db.String(80))
     user_guid = db.Column(db.Integer)
-    mobileno = db.Column(db.String(10))
+    mobileno = db.Column(db.String(80))
 
     def __init__(self, username, password, email, firstname, lastname, age, sex, location, non_veg, user_guid, mobileno):
         self.firstname = firstname
