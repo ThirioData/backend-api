@@ -34,6 +34,10 @@ api = Api(app)
 # from app.jwt import authenticate, identity # Must import these after the database connection is made
 jwt = JWT(app, authenticate, identity)
 
+class TwilioApi:
+    def __init__():
+        return AuthyApiClient(app.config['MH4y8ZkYq7HHcnx683vVRJ7qWeabIpan'])
+
 class HelloDodo(Resource):
     def get(self):
         return {
