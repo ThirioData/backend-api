@@ -4,16 +4,16 @@ import pandas as pd
 import boto3
 import csv
 
-s3 = boto3.client(
-    's3',
-    aws_access_key_id="AKIAJ4TFZGA2OEV7J37A",
-    aws_secret_access_key="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"
-)
+# s3 = boto3.client(
+#     's3',
+#     aws_access_key_id="AKIAJ4TFZGA2OEV7J37A",
+#     aws_secret_access_key="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"
+# )
 
 # Let's use Amazon S3
 # s3 = boto3.resource('s3')
-bucket_name = "thirio-csv"
-csv_file_name = "user_features.csv"
+# bucket_name = "thirio-csv"
+# csv_file_name = "user_features.csv"
 
 class UserRegister(Resource):
     parser = reqparse.RequestParser()
@@ -82,19 +82,18 @@ class UserRegister(Resource):
         user = UserModel(**data)
         # save to user_features
         fields = [data['age'], 100, data['location'], data['non_veg'], data['sex'], 1, 1, data['user_guid']]
-        # with open('../user_features.csv', 'a') as f:
-        #     writer = csv.writer(f)
-        #     writer.writerow(fields)
+        with open('../user_features.csv', 'a') as f:
+            writer = csv.writer(f)
+            writer.writerow(fields)
 
         # open connection to s3
         # fileobj = s3.Object(bucket_name, csv_file_name).get(['Body'])
         # for x in range(5):
         #     yield fileobj.read(1)
-        obj = s3.get_object(Bucket=bucket_name, Key=csv_file_name)
-        initial_df = pd.read_csv(obj['Body']) # 'Body' is a key word
-        # user.save_to_db()
-        print(initi)
+        # obj = s3.get_object(Bucket=bucket_name, Key=csv_file_name)
+        # initial_df = pd.read_csv(obj['Body']) # 'Body' is a key word
+        user.save_to_db()
+        # print(initi)
         return {
-            "message": "successfully signed up",
-            "data": "dodo" + initial_df + "res"
+            "message": "successfully signed up"
         }, 201
