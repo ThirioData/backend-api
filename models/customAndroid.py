@@ -25,4 +25,4 @@ class CustomAndroidModel(db.Model):
 
     def save_to_db(self):
         db.session.add(self)
-        sb.session.commit()
+        db.session.commit()
