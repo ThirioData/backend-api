@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from models.user import UserModel
+import pandas as pd
 import boto3
 import csv
 
@@ -86,12 +87,14 @@ class UserRegister(Resource):
         #     writer.writerow(fields)
 
         # open connection to s3
-        fileobj = s3.Object(bucket_name, csv_file_name).get(['Body'])
-        for x in range(5):
-            yield fileobj.read(1)
-        
+        # fileobj = s3.Object(bucket_name, csv_file_name).get(['Body'])
+        # for x in range(5):
+        #     yield fileobj.read(1)
+        obj = s3.get_object(Bucket=bucket_name, Key=csv_file_name)
+        initial_df = pd.read_csv(obj['Body']) # 'Body' is a key word
         # user.save_to_db()
 
         return {
-            "message": "successfully signed up"
+            "message": "successfully signed up",
+            "data": "dodo" + initial_df + "res"
         }, 201
