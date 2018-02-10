@@ -21,7 +21,7 @@ class CustomAndroidModel(db.Model):
 
     @classmethod
     def find_by_id(cls, mobileno):
-        return cls.query.filter_by(mobileno).first()
+        return cls.query.filter_by(mobileno=mobileno).first()
 
     def save_to_db(self):
         db.session.add(self)
