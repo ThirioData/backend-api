@@ -4,14 +4,14 @@ import pandas as pd
 import boto3
 import csv
 
-client = boto3.client(
+s3 = boto3.client(
     's3',
     aws_access_key_id="AKIAJ4TFZGA2OEV7J37A",
     aws_secret_access_key="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"
 )
 
 # Let's use Amazon S3
-s3 = boto3.resource('s3')
+# s3 = boto3.resource('s3')
 bucket_name = "thirio-csv"
 csv_file_name = "user_features.csv"
 
@@ -93,7 +93,7 @@ class UserRegister(Resource):
         obj = s3.get_object(Bucket=bucket_name, Key=csv_file_name)
         initial_df = pd.read_csv(obj['Body']) # 'Body' is a key word
         # user.save_to_db()
-
+        print(initi)
         return {
             "message": "successfully signed up",
             "data": "dodo" + initial_df + "res"
