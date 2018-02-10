@@ -12,3 +12,4 @@ scipy
 xlrd
 twilio
 authy
+boto3
