@@ -63,7 +63,7 @@ api.add_resource(FoodList, '/foods')
 api.add_resource(Recommend, '/dodo')
 api.add_resource(GenerateOtp, '/otpgenerate')
 api.add_resource(Verify, '/otpverify')
-api.add_resource(CustomAndroid, '/androiddata')
+api.add_resource(CustomAndroid, '/androiddata/<string:mobileno>')
 
 
 if __name__ == '__main__':
