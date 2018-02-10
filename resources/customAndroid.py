@@ -29,3 +29,12 @@ class CustomAndroid(Resource):
                 "message": "Error saving to database"
             }, 500
         return custom.json(), 201
+
+    
+    def get(self, mobileno):
+        custom = CustomAndroidModel.find_by_id(mobileno)
+        if custom:
+            return custom.json()
+        return {
+            "message": "No valid record with this mobile no."
+        }
