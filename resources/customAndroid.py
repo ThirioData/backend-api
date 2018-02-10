@@ -19,7 +19,7 @@ class CustomAndroid(Resource):
                         help="Enter timestamp in milisecond"
                         )
 
-    def post(self):
+    def post(self, mobileno):
         data = CustomAndroid.parser.parse_args()
         custom = CustomAndroidModel(data['mobileno'], data['steps'], data['timestamp'])
         try :
