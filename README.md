@@ -25,3 +25,8 @@ pip install Flask-Cors
 ```
 python app.py
 ```
+
+## All the database models are defined under models and we use sqlalchemy for our database
+## all the route endpoints are defined under resources which by conventions follow to take models from models directory
+## we are using uwsgi server runner to start our application and the file being responsible for starting the web app in production is run.py and on development is app.py
+## you can generate the requirement by reading the file requirements.txt
